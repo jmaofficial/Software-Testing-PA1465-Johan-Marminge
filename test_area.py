@@ -68,8 +68,9 @@ class TestRandomSamplePoint(unittest.TestCase):
 class TestEstimateBloomArea(unittest.TestCase):
     def test_estimate_bloom_area_returns_positive_value(self):
         #areas can't be negative, so we just check that the returned value is greater than 0
-        area = estimate_bloom_area(num_samples=1000)
-        self.assertGreater(area, 0)
+        for _ in range(1000):
+            area = estimate_bloom_area(num_samples=42)
+            self.assertGreater(area, 0)
 
     def test_estimate_bloom_area_all_samples_inside_returns_full_survey_area(self):
         #check that if all samples are inside the bloom, 

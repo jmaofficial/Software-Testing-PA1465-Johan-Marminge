@@ -5,7 +5,7 @@ from report import BlekingeBloomReporter
 
 class TestClassifyBloom(unittest.TestCase):
     def test_classify_bloom_returns_normal(self):
-        #simple test to check that the function returns "normal" for areas less than 5
+        #simple check that the function returns "normal" for areas less than 5
         reporter = BlekingeBloomReporter()
 
         with patch("report.estimate_bloom_area", return_value=4.99999):
@@ -19,7 +19,7 @@ class TestClassifyBloom(unittest.TestCase):
         self.assertEqual(classification, "normal")
 
     def test_classify_bloom_returns_warning(self):
-        #simple test to check that the function returns "warning" for areas between 5 and 10
+        #simple check that the function returns "warning" for areas between 5 and 10
         reporter = BlekingeBloomReporter()
 
         with patch("report.estimate_bloom_area", return_value=5):
